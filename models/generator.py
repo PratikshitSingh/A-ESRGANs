@@ -118,7 +118,7 @@ class Generator_RPA(nn.Module):
     """
 
     def __init__(self, num_in_ch=3, num_out_ch=3, scale=2, num_feat=64, num_block=20):
-        super(Generator, self).__init__()
+        super(Generator_RPA, self).__init__()
         self.scale = scale
         self.conv1 = nn.Conv2d(num_in_ch, num_feat, 3, 1, 1)
         # residual pixel-attention blocks
@@ -152,7 +152,7 @@ class Generator_RRDB(nn.Module):
     """
 
     def __init__(self, num_in_ch=3, num_out_ch=3, scale=4, num_feat=64, num_block=23, num_grow_ch=32):
-        super(_Generator, self).__init__()
+        super(Generator_RRDB, self).__init__()
         self.scale = scale
         num_in_ch *= 16 // (scale)**2
         self.conv1 = nn.Conv2d(num_in_ch, num_feat, 3, 1, 1)
@@ -180,6 +180,7 @@ class Generator_RRDB(nn.Module):
 
 
 if __name__ == "__main__":
+    import torch
     from torchsummary import summary
     net_g = Generator_RRDB()
-    summary(net_g, (3, 20, 20), batch_size=1)
+    summary(net_g, (3, 20, 20))
