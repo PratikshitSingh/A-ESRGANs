@@ -119,4 +119,4 @@ class UNetDiscriminatorAesrgan(nn.Module):
 if __name__ == "__main__":
     from torchsummary import summary
     uNet = UNetDiscriminatorAesrgan(3)
-    summary(uNet, (3, 224, 224), batch_size=1)
+    summary(uNet, (3, 224, 224))
