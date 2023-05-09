@@ -24,7 +24,7 @@ def charbonnier_loss(pred, target, eps=1e-12):
     return torch.sqrt((pred - target)**2 + eps)
 
 
-@LOSS_REGISTRY.register()
+# @LOSS_REGISTRY.register()
 class L1Loss(nn.Module):
     """L1 (mean absolute error, MAE) loss.
 
@@ -52,7 +52,7 @@ class L1Loss(nn.Module):
         return self.loss_weight * l1_loss(pred, target, weight, reduction=self.reduction)
 
 
-@LOSS_REGISTRY.register()
+# @LOSS_REGISTRY.register()
 class MSELoss(nn.Module):
     """MSE (L2) loss.
 
@@ -80,7 +80,7 @@ class MSELoss(nn.Module):
         return self.loss_weight * mse_loss(pred, target, weight, reduction=self.reduction)
 
 
-@LOSS_REGISTRY.register()
+# @LOSS_REGISTRY.register()
 class CharbonnierLoss(nn.Module):
     """Charbonnier loss (one variant of Robust L1Loss, a differentiable
     variant of L1Loss).
@@ -114,7 +114,7 @@ class CharbonnierLoss(nn.Module):
         return self.loss_weight * charbonnier_loss(pred, target, weight, eps=self.eps, reduction=self.reduction)
 
 
-@LOSS_REGISTRY.register()
+# @LOSS_REGISTRY.register()
 class WeightedTVLoss(L1Loss):
     """Weighted TV loss.
 
@@ -143,7 +143,7 @@ class WeightedTVLoss(L1Loss):
         return loss
 
 
-@LOSS_REGISTRY.register()
+# @LOSS_REGISTRY.register()
 class PerceptualLoss(nn.Module):
     """Perceptual loss with commonly used style loss.
 
