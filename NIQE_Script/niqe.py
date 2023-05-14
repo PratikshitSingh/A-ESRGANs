@@ -12,8 +12,8 @@ import argparse
 
 parser = argparse.ArgumentParser()
 # parser.add_argument('--path', required=True, help='image path')
-parser.add_argument('--path1', required=True, help='image path1')
-parser.add_argument('--path2', required=True, help='image path2')
+parser.add_argument('--path', required=True, help='image path1')
+#parser.add_argument('--path2', required=True, help='image path2')
 args = parser.parse_args()
 
 
